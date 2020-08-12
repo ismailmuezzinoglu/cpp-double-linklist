@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+#define    SATIR   5
+#define    SUTUN   5
+
+int main(void)
+{
+      FILE *p = NULL;
+      int matDizi[SATIR][SUTUN];
+      int obeb=0;
+      int sayac = 0;
+	  int sayi = 0;
+      char *dosyaAdi = "matris.txt";
+      int i, j;
+    
+    if((p = fopen("OBEB.txt", "r")) != NULL){
+           
+      for(i = 0; i < SATIR; i++){
+          
+          for(j = 0; j < SUTUN; j++){
+              
+              fscanf(p, "%d", &matDizi[i][j]);
+              printf("%d ", matDizi[i][j]);
+              
+          }    
+          printf("\n");
+      
+
+      
+    }
+     for(i = 0; i < SATIR; i++){
+          
+          for(j = 0; j < SUTUN; j++){
+              
+             /* if(matDizi[i][j]>obeb)
+              {
+              	obeb=matDizi[i][j];
+			  }*/
+			  sayi = matDizi[i][j];
+			  sayac = obebBul(obeb,sayi);
+              
+              printf("%d ", sayac);
+              sayi = 0;
+          }    
+      }
+	}else{
+        
+        printf("*** %s dosyasi bulunamadi!", dosyaAdi);
+    }
+    fclose(p);         
+      return 0;
+} 
+
+int obebBul(int sayi1, sayi2) {
+	int buyukSayi,buyukSayi, obeb;
+
+	if(sayi1 > sayi2) {
+		buyukSayi = sayi1;
+	} else {
+		buyukSayi = sayi2;
+	}
+
+	for(buyukSayi; buyukSayi>0; buyukSayi--) {
+		if( (sayi1%buyukSayi==0) && (sayi2%buyukSayi==0) ) {
+			 obeb = buyukSayi;
+			break;
+		}
+	}
+	
+	return obeb;
+}

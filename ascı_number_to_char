@@ -1,0 +1,29 @@
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+void asciiToSentence(string str, int len) 
+{ 
+    int num = 0; 
+    for (int i = 0; i < len; i++) { 
+  
+        num = num * 10 + (str[i] - '0'); 
+  
+        if (num >= 32 && num <= 122) { 
+  
+            char ch = (char)num; 
+            cout << ch; 
+  
+            num = 0; 
+        } 
+    } 
+} 
+  
+int main() 
+{ 
+    string str = "7982726578"; 
+    int len = str.length(); 
+    asciiToSentence(str, len); 
+  
+    return 0; 
+} 

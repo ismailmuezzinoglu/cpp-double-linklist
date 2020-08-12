@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+#define    SATIR   5
+#define    SUTUN   5
+
+int main(void)
+{
+      FILE *p = NULL;
+      int matDizi[SATIR][SUTUN];
+      char *dosyaAdi = "matris.txt";
+      int i, j;
+    
+    if((p = fopen("OBEB.txt", "r")) != NULL){
+           
+      for(i = 0; i < SATIR; i++){
+          
+          for(j = 0; j < SUTUN; j++){
+              
+              fscanf(p, "%d", &matDizi[i][j]);
+              printf("%d ", matDizi[i][j]);
+              
+          }    
+          printf("\n");
+      }
+    }else{
+        
+        printf("*** %s dosyasi bulunamadi!", dosyaAdi);
+    }
+    fclose(p);         
+      return 0;
+} 
